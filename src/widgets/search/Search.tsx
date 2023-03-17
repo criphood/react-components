@@ -18,7 +18,6 @@ class Search extends Component<object, State> {
   }
 
   componentWillUnmount() {
-    console.log(123);
     setState(this.state.text);
   }
 
