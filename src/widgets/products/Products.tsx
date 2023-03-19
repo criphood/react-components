@@ -35,7 +35,7 @@ class Products extends Component<object, State> {
       <div className={styles.cards}>
         {products.map((item: IProduct, i) => {
           return (
-            <div key={i} className={styles.card}>
+            <div role="card" data-testid={i.toString()} key={i} className={styles.card}>
               <h4 className={styles.card__title}>{item.title}</h4>
               <div className={styles.card__picture}>
                 <img src={item.image} alt={item.title} className={styles.card__picture__inner} />
