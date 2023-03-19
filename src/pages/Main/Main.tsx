@@ -5,10 +5,10 @@ import Search from '../../widgets/search/Search';
 class Main extends Component {
   render() {
     return (
-      <div className="wrapper">
+      <>
         <Search />
         <Products />
-      </div>
+      </>
     );
   }
 }

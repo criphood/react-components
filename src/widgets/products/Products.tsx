@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import getProducts from './api/ProductsApi';
+import styles from './Products.module.scss';
 
 interface IProduct {
   category: string;
@@ -30,13 +31,26 @@ class Products extends Component<object, State> {
 
   render() {
     const products = this.state.products;
-    return products.map((item: IProduct, i) => {
-      return (
-        <div key={i}>
-          <img src={item.image} alt="" />
-        </div>
-      );
-    });
+    return (
+      <div className={styles.cards}>
+        {products.map((item: IProduct, i) => {
+          return (
+            <div key={i} className={styles.card}>
+              <h4 className={styles.card__title}>{item.title}</h4>
+              <div className={styles.card__picture}>
+                <img src={item.image} alt={item.title} className={styles.card__picture__inner} />
+              </div>
+              <p className={styles.card__description}>{item.description}</p>
+              <div className={styles.card__details}>
+                <span className={styles.card__price}>Price: {item.price}$</span>
+                <span className={styles.card__amount}>Amount: {item.rating.count}</span>
+                <span className={styles.card__rating}>Rating: {item.rating.rate}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 

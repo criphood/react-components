@@ -1,6 +1,6 @@
-import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 import { getState, setState } from './utils/utils';
+import styles from './Search.module.scss';
 
 type State = { text: string };
 
@@ -23,12 +23,12 @@ class Search extends Component<object, State> {
 
   render() {
     return (
-      <div className="search__container">
+      <div className={styles.search__container}>
         <input
           type="text"
-          className="search__input"
           value={this.state.text}
           onChange={this.onChange}
+          className={styles.search__input}
         />
       </div>
     );
