@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getState, setState } from './utils/utils';
 import styles from './Search.module.scss';
-import Products from '../products/Products';
 
 type State = { text: string };
 

@@ -1,7 +1,4 @@
 import getProducts from './api/ProductsApi';
-import Products from './Products';
-import { render, screen } from '@testing-library/react';
-import React from 'react';
 
 describe('test api', () => {
   it('should return first item', async () => {
