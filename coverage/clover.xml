@@ -1,8 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1679247413189" clover="3.2.0">
-  <project timestamp="1679247413189" name="All files">
-    <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4" elements="15" coveredelements="12" complexity="0" loc="10" ncloc="10" packages="2" files="2" classes="2"/>
-    <package name="products.api">
+<coverage generated="1679247680119" clover="3.2.0">
+  <project timestamp="1679247680119" name="All files">
+    <metrics statements="31" coveredstatements="21" conditionals="2" coveredconditionals="2" methods="16" coveredmethods="10" elements="49" coveredelements="33" complexity="0" loc="31" ncloc="31" packages="11" files="11" classes="11"/>
+    <package name="src">
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\index.tsx">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="App.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\app\App.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages.About">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="About.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\pages\About\About.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages.Error">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Error.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\pages\Error\Error.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages.Main">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Main.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\pages\Main\Main.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.widgets.navigation">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Navigation.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\navigation\Navigation.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.widgets.products">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="Products.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\products\Products.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.widgets.products.api">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="ProductsApi.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\products\api\ProductsApi.tsx">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -12,7 +69,14 @@
         <line num="6" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="search">
+    <package name="src.widgets.router">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="AppRouter.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\router\AppRouter.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.widgets.search">
       <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
       <file name="Search.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\search\Search.tsx">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
@@ -22,6 +86,17 @@
         <line num="17" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.widgets.search.utils">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="utils.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\search\utils\utils.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
       </file>
     </package>
   </project>
