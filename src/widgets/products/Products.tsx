@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getProducts from './api/ProductsApi';
+import getProducts from './api/products-api';
 import styles from './Products.module.scss';
 
 interface IProduct {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Products from '../../widgets/products/Products';
-import Search from '../../widgets/search/Search';
+import Products from '../../widgets/products/products';
+import Search from '../../widgets/search/search';
 
 class Main extends Component {
   render() {

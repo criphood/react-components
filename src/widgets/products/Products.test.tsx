@@ -1,4 +1,4 @@
-import getProducts from './api/ProductsApi';
+import getProducts from './api/products-api';
 
 describe('test api', () => {
   it('should return first item', async () => {
