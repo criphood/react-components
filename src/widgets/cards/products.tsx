@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import getProducts from './api/products-api';
-import styles from './Products.module.scss';
 
 interface IProduct {
   category: string;
@@ -32,19 +31,19 @@ class Products extends Component<object, State> {
   render() {
     const products = this.state.products;
     return (
-      <div className={styles.cards}>
+      <div className="cards">
         {products.map((item: IProduct, i) => {
           return (
-            <div role="card" data-testid={i.toString()} key={i} className={styles.card}>
-              <h4 className={styles.card__title}>{item.title}</h4>
-              <div className={styles.card__picture}>
-                <img src={item.image} alt={item.title} className={styles.card__picture__inner} />
+            <div role="card" data-testid={i.toString()} key={i} className="card">
+              <h4 className="card__title">{item.title}</h4>
+              <div className="card__picture">
+                <img src={item.image} alt={item.title} className="card__picture__inner" />
               </div>
-              <p className={styles.card__description}>{item.description}</p>
-              <div className={styles.card__details}>
-                <span className={styles.card__price}>Price: {item.price}$</span>
-                <span className={styles.card__amount}>Amount: {item.rating.count}</span>
-                <span className={styles.card__rating}>Rating: {item.rating.rate}</span>
+              <p className="card__description">{item.description}</p>
+              <div className="card__details">
+                <span className="card__price">Price: {item.price}$</span>
+                <span className="card__amount">Amount: {item.rating.count}</span>
+                <span className="card__rating">Rating: {item.rating.rate}</span>
               </div>
             </div>
           );
