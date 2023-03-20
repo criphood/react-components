@@ -23,5 +23,8 @@
     &:hover {
       color:rgb(196, 196, 196);
     }
+    &.active {
+      opacity: 0.5;
+    }
   }
 }

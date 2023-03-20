@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import About from '../../pages/about/about';
-import Error from '../../pages/error/error';
-import Main from '../../pages/main/main';
+import About from '../../pages/about';
+import Error from '../../pages/error';
+import Main from '../../pages/main';
 
 class AppRouter extends Component {
   render() {
