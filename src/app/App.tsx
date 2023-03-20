@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppRouter from '../widgets/router/app-router';
-import Navigation from '../widgets/navigation/navigation';
+import Navigation from '../widgets/navigation/nav';
 
 class App extends Component {
   render() {
