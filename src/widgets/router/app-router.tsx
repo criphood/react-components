@@ -11,7 +11,7 @@ class AppRouter extends Component {
       <Routes>
         <Route path={'/'} element={<Main />} />
         <Route path={'/about'} element={<About />} />
-        <Route path={'/forms'} element={<About />} />
+        <Route path={'/forms'} element={<Forms />} />
         <Route path={'*'} element={<Navigate to="/404" replace />} />
         <Route path="/404" element={<Error />} />
       </Routes>
