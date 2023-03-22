@@ -12,9 +12,9 @@ class FormsPage extends Component {
 
   render() {
     return (
-      <>
+      <div className="form__wrapper">
         <Form />
-      </>
+      </div>
     );
   }
 }
