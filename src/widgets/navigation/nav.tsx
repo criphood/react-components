@@ -7,6 +7,7 @@ class Navigation extends Component {
       <nav className="nav">
         <NavLink to="/">Main Page</NavLink>
         <NavLink to="/about">About Us</NavLink>
+        <NavLink to="/forms">Forms</NavLink>
       </nav>
     );
   }

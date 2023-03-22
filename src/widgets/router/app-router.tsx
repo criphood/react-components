@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import About from '../../pages/about';
 import Error from '../../pages/error';
 import Main from '../../pages/main';
+import Forms from '../../pages/forms';
 
 class AppRouter extends Component {
   render() {
@@ -10,6 +11,7 @@ class AppRouter extends Component {
       <Routes>
         <Route path={'/'} element={<Main />} />
         <Route path={'/about'} element={<About />} />
+        <Route path={'/forms'} element={<About />} />
         <Route path={'*'} element={<Navigate to="/404" replace />} />
         <Route path="/404" element={<Error />} />
       </Routes>
