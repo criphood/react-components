@@ -24,9 +24,9 @@
     font-weight: 800;
     font-size: 20px;
     color: #ffffff;
-    transition: .3s all ease;
+    transition: 0.3s all ease;
     &:hover {
-      color:rgb(196, 196, 196);
+      color: rgb(196, 196, 196);
     }
     &.active {
       opacity: 0.5;
@@ -111,4 +111,36 @@
 
 h1 {
   text-align: center;
+}
+
+.input__container {
+  display: flex;
+  gap: 5px;
+}
+
+.checkbox__container {
+  display: flex;
+  gap: 5px;
+}
+
+.input__gender {
+  display: flex;
+  gap: 20px;
+}
+
+label {
+  min-width: 90px;
+}
+
+#genders  {
+  & input {
+    margin-right: 3px;
+  }
+  & label {
+    margin-right: 10px;
+  }
+}
+
+.error {
+  color: red;
 }
