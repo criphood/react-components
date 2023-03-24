@@ -4,6 +4,15 @@ interface IProps {
   handle: (e: React.MouseEvent) => void;
 }
 
+interface IUser {
+  username: string;
+  birthday: string;
+  city: string;
+  gender: string;
+}
+
+const users: IUser[] = [];
+
 class Form extends Component {
   nameRef: React.RefObject<HTMLInputElement>;
   dateRef: React.RefObject<HTMLInputElement>;
@@ -14,8 +23,11 @@ class Form extends Component {
   submitRef: React.RefObject<HTMLButtonElement>;
   state: {
     nameError: boolean;
+    dateError: boolean;
+    cityError: boolean;
     genderError: boolean;
     consentError: boolean;
+    noErrors: boolean;
   };
 
   constructor(props: IProps) {
@@ -29,9 +41,16 @@ class Form extends Component {
     this.submitRef = React.createRef();
     this.state = {
       nameError: false,
+      dateError: false,
+      cityError: false,
       genderError: false,
       consentError: false,
+      noErrors: true,
     };
+  }
+
+  componentDidUpdate() {
+    console.log(this.checkForErrors());
   }
 
   validateForm() {
@@ -40,6 +59,18 @@ class Form extends Component {
       this.setState({ nameError: true });
     } else {
       this.setState({ nameError: false });
+    }
+
+    if (!this.dateRef.current?.value) {
+      this.setState({ dateError: true });
+    } else {
+      this.setState({ dateError: false });
+    }
+
+    if (!this.cityRef.current?.value) {
+      this.setState({ cityError: true });
+    } else {
+      this.setState({ cityError: false });
     }
 
     if (!this.maleRef.current?.checked && !this.femaleRef.current?.checked) {
@@ -53,39 +84,18 @@ class Form extends Component {
     } else {
       this.setState({ consentError: false });
     }
+  }
 
-    Object.values(this.state).map((value: boolean) => {
-      if (this.submitRef.current) {
-        if (value) {
-          this.submitRef.current.disabled = false;
-        } else {
-          this.submitRef.current.disabled = true;
-        }
-      }
-    });
+  checkForErrors() {
+    return Object.values(this.state)
+      .slice(0, -1)
+      .some((value) => value);
   }
 
   handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-
     this.validateForm();
-
-    console.log(this.maleRef.current?.checked);
-
-    // console.log(this.dateRef.current?.value);
-    // console.log(this.cityRef.current?.value);
-    // console.log(this.state.gender);
-    // console.log(this.state.consent);
-  }
-
-  setConsent(e: {
-    target: {
-      checked: boolean;
-    };
-  }) {
-    this.setState({
-      consent: e.target.checked,
-    });
+    this.checkForErrors();
   }
 
   render() {
@@ -106,17 +116,22 @@ class Form extends Component {
             <label htmlFor="date">Birthday:</label>
             <input ref={this.dateRef} type="date" id="date" />
           </div>
+          {this.state.dateError && <span className="error">Enter birthday</span>}
         </div>
 
         <div className="field">
           <div className="input__container">
             <label htmlFor="city">City:</label>
-            <select ref={this.cityRef} defaultValue="Moscow" id="city">
+            <select ref={this.cityRef} defaultValue={''} id="city">
+              <option disabled value="">
+                Choose favorite city
+              </option>
               <option>Moscow</option>
               <option>Kazan</option>
               <option>Minsk</option>
             </select>
           </div>
+          {this.state.cityError && <span className="error">Choose your favorite city</span>}
         </div>
 
         <div className="field">

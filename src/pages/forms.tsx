@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from '../widgets/form-component/form';
+import User from '../widgets/user/user-card';
 
 interface IProps {
   handle: (e: React.MouseEvent) => void;
@@ -14,6 +15,7 @@ class FormsPage extends Component {
     return (
       <div className="form__wrapper">
         <Form />
+        <User />
       </div>
     );
   }
