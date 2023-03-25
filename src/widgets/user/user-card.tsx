@@ -1,17 +1,40 @@
-import React from 'react';
-import Form from '../form-component/form';
+import React, { Component } from 'react';
 
-interface IProps {
-  handle: (e: React.MouseEvent) => void;
+interface IUser {
+  username: string;
+  birthday: string;
+  city: string;
+  gender: string;
 }
 
-class User extends Form {
+interface IProps {
+  users: IUser[];
+}
+
+class User extends Component<IProps, object> {
   constructor(props: IProps) {
     super(props);
   }
 
+  componentDidUpdate() {
+    this.render();
+  }
+
   render() {
-    return <div></div>;
+    const users = this.props.users;
+
+    if (users.length > 0) {
+      return users.map(({ username, birthday, city, gender }, i) => {
+        return (
+          <div key={i} className="user">
+            <div className="user__name">{username}</div>
+            <div className="user__birthday">{birthday}</div>
+            <div className="user__city">{city}</div>
+            <div className="user__gender">{gender}</div>
+          </div>
+        );
+      });
+    }
   }
 }
 export default User;
