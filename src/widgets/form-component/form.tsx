@@ -10,6 +10,7 @@ interface IUser {
   birthday: string;
   city: string;
   gender: string;
+  src: string;
 }
 
 class Form extends Component {
@@ -18,6 +19,7 @@ class Form extends Component {
   cityRef: React.RefObject<HTMLSelectElement>;
   maleRef: React.RefObject<HTMLInputElement>;
   femaleRef: React.RefObject<HTMLInputElement>;
+  uploadRef: React.RefObject<HTMLInputElement>;
   consentRef: React.RefObject<HTMLInputElement>;
   submitRef: React.RefObject<HTMLButtonElement>;
   state: {
@@ -25,8 +27,10 @@ class Form extends Component {
     dateError: boolean;
     cityError: boolean;
     genderError: boolean;
+    uploadError: boolean;
     consentError: boolean;
     users: IUser[];
+    file: string;
   };
 
   constructor(props: IProps) {
@@ -37,14 +41,17 @@ class Form extends Component {
     this.maleRef = React.createRef();
     this.femaleRef = React.createRef();
     this.consentRef = React.createRef();
+    this.uploadRef = React.createRef();
     this.submitRef = React.createRef();
     this.state = {
       nameError: false,
       dateError: false,
       cityError: false,
       genderError: false,
+      uploadError: false,
       consentError: false,
       users: [],
+      file: '',
     };
   }
 
@@ -54,6 +61,7 @@ class Form extends Component {
       birthday: '',
       city: '',
       gender: '',
+      src: '',
     };
     const name = this.nameRef.current?.value;
     const gender = this.setGender();
@@ -86,6 +94,14 @@ class Form extends Component {
       if (gender) user.gender = gender;
     }
 
+    if (this.uploadRef.current?.files && !this.uploadRef.current?.files[0]) {
+      this.setState({ uploadError: true });
+    } else {
+      this.setState({ uploadError: false });
+      const imgSrc = this.setImageSrc();
+      if (imgSrc) user.src = imgSrc;
+    }
+
     if (!this.consentRef.current?.checked) {
       this.setState({ consentError: true });
     } else {
@@ -94,13 +110,36 @@ class Form extends Component {
         const copy = Object.assign([], this.state.users);
         copy.push(user);
         this.setState({ users: copy });
+        alert('Data received seccessfully');
+        this.clearForm();
       }
+    }
+  }
+
+  clearForm() {
+    if (
+      this.nameRef.current &&
+      this.dateRef.current &&
+      this.cityRef.current &&
+      this.maleRef.current &&
+      this.femaleRef.current &&
+      this.consentRef.current &&
+      this.uploadRef.current?.files
+    ) {
+      this.nameRef.current.value = '';
+      this.dateRef.current.value = '';
+      this.cityRef.current.value = '';
+      this.maleRef.current.checked = false;
+      this.femaleRef.current.checked = false;
+      this.consentRef.current.checked = false;
+      this.uploadRef.current.value = '';
+      this.setState({ file: '' });
     }
   }
 
   checkForErrors() {
     return Object.values(this.state)
-      .slice(0, -1)
+      .slice(0, -2)
       .some((value) => value);
   }
 
@@ -114,16 +153,25 @@ class Form extends Component {
     this.validateForm();
   }
 
+  setImageSrc() {
+    if (this.uploadRef.current?.files) {
+      const file = this.uploadRef.current?.files[0];
+      if (file) {
+        return URL.createObjectURL(file).toString();
+      }
+    }
+  }
+
   render() {
     return (
-      <div className="div__wrapper">
+      <div className="form__wrapper">
         <form className="form">
           <h1>Registration</h1>
 
           <div className="field">
             <div className="input__container">
               <label htmlFor="username">Name:</label>
-              <input ref={this.nameRef} type="text" id="username" />
+              <input ref={this.nameRef} placeholder="input name" type="text" id="username" />
             </div>
             {this.state.nameError && <span className="error">Capitalize your name</span>}
           </div>
@@ -141,9 +189,10 @@ class Form extends Component {
               <label htmlFor="city">City:</label>
               <select ref={this.cityRef} defaultValue={''} id="city">
                 <option disabled value="">
-                  Choose favorite city
+                  Choose your city
                 </option>
                 <option>Moscow</option>
+                <option>Saint-Petersburg</option>
                 <option>Kazan</option>
                 <option>Minsk</option>
               </select>
@@ -167,10 +216,24 @@ class Form extends Component {
           </div>
 
           <div className="field">
-            <div className="container__input">
-              <label htmlFor="file">Avatar</label>
-              <input type="file" id="file" />
+            <div className="input__container file__container">
+              <label htmlFor="file">Avatar:</label>
+              <label className="file__label">
+                <input
+                  type="file"
+                  id="file"
+                  ref={this.uploadRef}
+                  onChange={() => {
+                    if (this.uploadRef.current?.files && this.uploadRef.current?.files[0]) {
+                      this.setState({ file: this.uploadRef.current?.files[0].name });
+                    }
+                  }}
+                />
+                Upload image
+              </label>
+              <span className="file__name">{this.state.file}</span>
             </div>
+            {this.state.uploadError && <span className="error">Choose avatar</span>}
           </div>
 
           <div className="field">
@@ -182,9 +245,16 @@ class Form extends Component {
             {this.state.consentError && <span className="error">Accept our policy</span>}
           </div>
 
-          <button type="submit" onClick={(e) => this.handleSubmit(e)} ref={this.submitRef}>
-            Submit
-          </button>
+          <div className="button__wrapper">
+            <button
+              type="submit"
+              className="button"
+              onClick={(e) => this.handleSubmit(e)}
+              ref={this.submitRef}
+            >
+              Submit
+            </button>
+          </div>
         </form>
 
         <User users={this.state.users} />
