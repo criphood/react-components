@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import getProducts from './api/products-api';
 
 interface IProduct {
@@ -14,43 +14,39 @@ interface IProduct {
   title: string;
 }
 
-type State = { products: IProduct[] };
+const Products = () => {
+  const url = 'https://fakestoreapi.com/products';
+  const [cards, setCards] = useState<IProduct[]>([]);
 
-class Products extends Component<object, State> {
-  url = 'https://fakestoreapi.com/products';
+  useEffect(() => {
+    const getData = async () => {
+      const response: IProduct[] = await getProducts(url);
+      setCards(response);
+    };
 
-  state = {
-    products: [],
-  };
+    getData();
+  }, []);
 
-  async componentDidMount() {
-    const products: IProduct[] = await getProducts(this.url);
-    this.setState({ products: products });
-  }
-
-  render() {
-    const products = this.state.products;
-    return (
-      <div className="cards">
-        {products.map((item: IProduct, i) => {
-          return (
-            <div role="card" data-testid={i.toString()} key={i} className="card">
-              <h4 className="card__title">{item.title}</h4>
-              <div className="card__picture">
-                <img src={item.image} alt={item.title} className="card__picture__inner" />
-              </div>
-              <p className="card__description">{item.description}</p>
-              <div className="card__details">
-                <span className="card__price">Price: {item.price}$</span>
-                <span className="card__amount">Amount: {item.rating.count}</span>
-                <span className="card__rating">Rating: {item.rating.rate}</span>
-              </div>
+  return (
+    <div className="cards">
+      {cards.map(({ title, image, description, price, rating }, i) => {
+        return (
+          <div role="card" data-testid={i.toString()} key={i} className="card">
+            <h4 className="card__title">{title}</h4>
+            <div className="card__picture">
+              <img src={image} alt={title} className="card__picture__inner" />
             </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
+            <p className="card__description">{description}</p>
+            <div className="card__details">
+              <span className="card__price">Price: {price}$</span>
+              <span className="card__amount">Amount: {rating.count}</span>
+              <span className="card__rating">Rating: {rating.rate}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Products;

@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
 import Products from '../widgets/cards/products';
 import Search from '../widgets/search-input/search';
+import React from 'react';
 
-class Main extends Component {
-  render() {
-    return (
-      <>
-        <Search />
-        <Products />
-      </>
-    );
-  }
-}
-export default Main;
+const main = () => {
+  return (
+    <>
+      <Search />
+      <Products />
+    </>
+  );
+};
+
+export default main;
