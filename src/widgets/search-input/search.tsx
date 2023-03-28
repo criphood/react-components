@@ -1,38 +1,30 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getState, setState } from './utils/utils';
 
-type State = { text: string };
+const Search = () => {
+  const [inputValue, setInputValue] = useState<string>('');
 
-class Search extends Component<object, State> {
-  state = {
-    text: '',
-  };
+  useEffect(() => {
+    setInputValue(getState());
+  }, []);
 
-  onChange = (e: React.FormEvent<HTMLInputElement>): void => {
-    this.setState({ text: e.currentTarget.value });
-  };
+  useEffect(() => {
+    return () => {
+      setState(inputValue);
+    };
+  });
 
-  componentDidMount() {
-    this.setState({ text: getState() });
-  }
-
-  componentWillUnmount() {
-    setState(this.state.text);
-  }
-
-  render() {
-    return (
-      <div className="search__container">
-        <input
-          type="text"
-          value={this.state.text}
-          onChange={this.onChange}
-          className="search__input"
-          placeholder="Search..."
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="search__container">
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        className="search__input"
+        placeholder="Search..."
+      />
+    </div>
+  );
+};
 
 export default Search;
