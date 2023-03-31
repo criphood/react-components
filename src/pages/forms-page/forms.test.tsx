@@ -7,7 +7,7 @@ import React from 'react';
 describe('123', () => {
   beforeEach(() => render(<FormsPage />));
   it('should be input on page', () => {
-    const name = screen.getByPlaceholderText(/input/i);
+    const name = screen.getByText(/name/i);
     expect(name).toBeInTheDocument();
   });
   it('should be input on page', async () => {

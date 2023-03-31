@@ -1,4 +1,4 @@
-import Form from '../widgets/form-component/form';
+import Form from '../../widgets/form-component/form';
 
 import React from 'react';
 

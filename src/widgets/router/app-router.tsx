@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import About from '../../pages/about';
-import Error from '../../pages/error';
-import Main from '../../pages/main';
-import Forms from '../../pages/forms';
+import About from '../../pages/about-page/about';
+import Error from '../../pages/error-page/error';
+import Main from '../../pages/main-page/main';
+import Forms from '../../pages/forms-page/forms';
 
 class AppRouter extends Component {
   render() {

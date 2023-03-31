@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppRouter from '../widgets/router/app-router';
 import Navigation from '../widgets/navigation/nav';
 
