@@ -23,6 +23,7 @@ const Form = () => {
   const maleRef = useRef<HTMLInputElement>(null);
   const femaleRef = useRef<HTMLInputElement>(null);
   const [avatar, setAvatar] = useState<string>('');
+  const [city, setCity] = useState<string>('');
   const [avatarURL, setAvatarURL] = useState<string>('');
   const [users] = useState<IUser[]>([]);
 
@@ -34,6 +35,7 @@ const Form = () => {
     data.src = avatarURL;
     alert('Data has been received!');
     users.push(data);
+    setCity('');
     reset();
   };
   const setGender = (
@@ -79,11 +81,15 @@ const Form = () => {
         <Select
           id="city"
           label="City"
-          defaultValue=""
+          value={city}
           {...register('city', {
             required: 'This field is required',
           })}
+          onChange={(e) => {
+            setCity(e.target.value);
+          }}
         >
+          <MenuItem selected value={''}></MenuItem>
           <MenuItem value={'Moscow'}>Moscow</MenuItem>
           <MenuItem value={'Kazan'}>Kazan</MenuItem>
           <MenuItem value={'Saint-Petersburg'}>Saint-Petersburg</MenuItem>

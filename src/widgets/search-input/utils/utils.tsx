@@ -1,13 +1,17 @@
-function setState(value: string) {
-  localStorage.setItem('cripInput', JSON.stringify(value));
-}
+import { useEffect, useRef } from 'react';
 
-function getState() {
-  const item = localStorage.getItem('cripInput');
-  if (typeof item === 'string') {
-    return JSON.parse(item);
-  }
-  return '';
-}
+const SearchInput = (value: string) => {
+  const inputValue = useRef(value);
 
-export { setState, getState };
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('cripInput', inputValue.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    inputValue.current = value;
+  }, [value]);
+};
+
+export { SearchInput };

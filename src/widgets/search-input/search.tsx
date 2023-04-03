@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getState, setState } from './utils/utils';
+import { SearchInput } from './utils/utils';
 
 const Search = () => {
   const [inputValue, setInputValue] = useState<string>('');
 
   useEffect(() => {
-    setInputValue(getState());
+    setInputValue(localStorage.getItem('cripInput') || '');
   }, []);
 
-  useEffect(() => {
-    return () => {
-      setState(inputValue);
-    };
-  });
+  SearchInput(inputValue);
 
   return (
     <div className="search__container">
