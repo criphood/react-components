@@ -1,9 +1,9 @@
-async function getProducts<T>(url: string): Promise<T> {
+async function getProducts(url: string) {
   try {
     const res = await fetch(url);
     return await res.json();
-  } catch {
-    throw new Error();
+  } catch (error) {
+    console.log(error);
   }
 }
 

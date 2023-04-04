@@ -6,6 +6,7 @@ const Search = () => {
 
   useEffect(() => {
     setInputValue(localStorage.getItem('cripInput') || '');
+    console.log('change');
   }, []);
 
   SearchInput(inputValue);

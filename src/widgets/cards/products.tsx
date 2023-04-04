@@ -15,12 +15,14 @@ interface IProduct {
 }
 
 const Products = () => {
-  const url = 'https://fakestoreapi.com/products';
+  const url =
+    'https://api.unsplash.com/photos?query=off&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY';
   const [cards, setCards] = useState<IProduct[]>([]);
 
   useEffect(() => {
     const getData = async () => {
       const response: IProduct[] = await getProducts(url);
+      console.log(response);
       setCards(response);
     };
 
@@ -29,7 +31,7 @@ const Products = () => {
 
   return (
     <div className="cards">
-      {cards.map(({ title, image, description, price, rating }, i) => {
+      {/* {cards.map(({ title, image, description, price, rating }, i) => {
         return (
           <div role="card" data-testid={i.toString()} key={i} className="card">
             <h4 className="card__title">{title}</h4>
@@ -44,7 +46,7 @@ const Products = () => {
             </div>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };
