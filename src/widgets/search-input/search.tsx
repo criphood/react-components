@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { SearchInput } from './utils/utils';
 
-const Search = () => {
+const Search = ({ ...props }) => {
   const [inputValue, setInputValue] = useState<string>('');
 
   useEffect(() => {
     setInputValue(localStorage.getItem('cripInput') || '');
-    console.log('change');
   }, []);
 
   SearchInput(inputValue);
@@ -17,6 +16,11 @@ const Search = () => {
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        onKeyUp={(e) => {
+          if (e.code === 'Enter') {
+            props.setQuery(inputValue);
+          }
+        }}
         className="search__input"
         placeholder="Search..."
       />

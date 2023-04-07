@@ -14,20 +14,19 @@ interface IProduct {
   title: string;
 }
 
-const Products = () => {
-  const url =
-    'https://api.unsplash.com/photos?query=off&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY';
+const Products = ({ ...props }) => {
+  const url = `https://api.unsplash.com/photos?query=${props.query}&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY`;
   const [cards, setCards] = useState<IProduct[]>([]);
 
   useEffect(() => {
     const getData = async () => {
       const response: IProduct[] = await getProducts(url);
-      console.log(response);
+      console.log(url);
       setCards(response);
     };
 
     getData();
-  }, []);
+  }, [props.query, url]);
 
   return (
     <div className="cards">
