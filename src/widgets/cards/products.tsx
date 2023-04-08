@@ -2,27 +2,41 @@ import React, { useEffect, useState } from 'react';
 import getProducts from './api/products-api';
 
 interface IProduct {
-  category: string;
+  created_at: string;
   description: string;
-  id: number;
-  image: string;
-  price: number;
-  rating: {
-    count: number;
-    rate: number;
+  alt_description: string;
+  id: string;
+  tags: {
+    type: string;
+    title: string;
+    source?: object;
   };
-  title: string;
+  urls: {
+    full: string;
+    raw: string;
+    regular: string;
+    small: string;
+    small_s3: string;
+    thumb: string;
+  };
+  user: {
+    name: string;
+    username: string;
+    profile_image: {
+      small: string;
+    };
+  };
 }
 
 const Products = ({ ...props }) => {
-  const url = `https://api.unsplash.com/photos?query=${props.query}&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY`;
+  const url = `https://api.unsplash.com/search/photos?orientation=landscape&per_page=100&query=${props.query}&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY`;
   const [cards, setCards] = useState<IProduct[]>([]);
 
   useEffect(() => {
     const getData = async () => {
-      const response: IProduct[] = await getProducts(url);
-      console.log(url);
-      setCards(response);
+      const response = await getProducts(url);
+      console.log(response.results);
+      setCards(response.results);
     };
 
     getData();
@@ -30,22 +44,17 @@ const Products = ({ ...props }) => {
 
   return (
     <div className="cards">
-      {/* {cards.map(({ title, image, description, price, rating }, i) => {
+      {cards.map(({ description, alt_description, urls }, i) => {
         return (
           <div role="card" data-testid={i.toString()} key={i} className="card">
-            <h4 className="card__title">{title}</h4>
-            <div className="card__picture">
-              <img src={image} alt={title} className="card__picture__inner" />
-            </div>
-            <p className="card__description">{description}</p>
-            <div className="card__details">
-              <span className="card__price">Price: {price}$</span>
-              <span className="card__amount">Amount: {rating.count}</span>
-              <span className="card__rating">Rating: {rating.rate}</span>
-            </div>
+            <div
+              className="card__picture"
+              style={{ backgroundImage: `url(${urls.regular})` }}
+            ></div>
+            <p className="card__description">{description || alt_description}</p>
           </div>
         );
-      })} */}
+      })}
     </div>
   );
 };
