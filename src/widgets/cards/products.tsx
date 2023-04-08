@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getProducts from './api/products-api';
+import Preloader from '../loader/preloader';
 
 interface IProduct {
   created_at: string;
@@ -29,20 +30,24 @@ interface IProduct {
 }
 
 const Products = ({ ...props }) => {
-  const url = `https://api.unsplash.com/search/photos?orientation=landscape&per_page=100&query=${props.query}&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY`;
+  const query = props.query || 'random';
+  const url = `https://api.unsplash.com/search/photos?orientation=landscape&per_page=100&query=${query}&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY`;
   const [cards, setCards] = useState<IProduct[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
+      setIsLoading(true);
       const response = await getProducts(url);
-      console.log(response.results);
       setCards(response.results);
     };
 
-    getData();
-  }, [props.query, url]);
+    getData().then(() => setIsLoading(false));
+  }, [query, url]);
 
-  return (
+  return isLoading ? (
+    <Preloader />
+  ) : (
     <div className="cards">
       {cards.map(({ description, alt_description, urls }, i) => {
         return (
