@@ -2,11 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
-import selectEvent from 'react-select-event';
 import React from 'react';
 import Form from './form';
-
-const alertMock = jest.spyOn(window, 'alert').mockImplementation();
 
 describe('Form', () => {
   it('form', async () => {
@@ -60,6 +57,6 @@ describe('Form', () => {
     const city = screen.getByTestId(/city/i) as HTMLInputElement;
     fireEvent.change(city, { target: { value: '' } });
     expect(city).toBeInTheDocument();
-    expect(city.value).toBe('')
+    expect(city.value).toBe('');
   });
 });
