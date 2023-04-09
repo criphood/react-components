@@ -1,4 +1,4 @@
-import getProducts from './api/products-api';
+import getCards from './api/cards-api';
 
 describe('test api', () => {
   it('should return first item', async () => {
@@ -18,7 +18,7 @@ describe('test api', () => {
     const mockFetchPromise = Promise.resolve(mockResponse);
     jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-    const result = await getProducts('https://fakestoreapi.com/products/1');
+    const result = await getCards('https://fakestoreapi.com/products/1');
 
     expect(result).toEqual({
       id: 1,

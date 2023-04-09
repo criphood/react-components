@@ -1,4 +1,4 @@
-import Products from '../../widgets/cards/products';
+import Products from '../../widgets/cards/cards';
 import Search from '../../widgets/search-input/search';
 import React, { useState } from 'react';
 

@@ -79,6 +79,7 @@ const Form = () => {
 
         <label htmlFor="city">Favorite City</label>
         <Select
+          data-testid="city"
           id="city"
           label="City"
           value={city}
@@ -106,9 +107,19 @@ const Form = () => {
                 maleRef.current?.checked || femaleRef.current?.checked || 'Choose your gender',
             })}
           >
-            <input type="radio" ref={maleRef} onChange={(e) => setGender(e, femaleRef)} />
+            <input
+              type="radio"
+              ref={maleRef}
+              data-testid="female"
+              onChange={(e) => setGender(e, femaleRef)}
+            />
             <span>Male</span>
-            <input type="radio" ref={femaleRef} onChange={(e) => setGender(e, maleRef)} />
+            <input
+              type="radio"
+              ref={femaleRef}
+              data-testid="male"
+              onChange={(e) => setGender(e, maleRef)}
+            />
             <span>Female</span>
           </div>
         </div>
@@ -122,6 +133,7 @@ const Form = () => {
             <input
               type="file"
               id="avatar"
+              data-testid="avatar"
               {...register('src', {
                 required: 'Upload your photo',
               })}
@@ -143,6 +155,7 @@ const Form = () => {
           <input
             id="consent"
             type="checkbox"
+            data-testid="consent"
             {...register('consent', {
               required: 'Сonsent to the processing of your data',
             })}

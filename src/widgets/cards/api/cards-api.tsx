@@ -1,4 +1,4 @@
-async function getProducts(url: string) {
+async function getCards(url: string) {
   try {
     const res = await fetch(url);
     return await res.json();
@@ -7,4 +7,4 @@ async function getProducts(url: string) {
   }
 }
 
-export default getProducts;
+export default getCards;
