@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { SearchInput } from './utils/utils';
+
+interface SearchText {
+  searchText: { searchText: string };
+}
 
 const Search = ({ ...props }) => {
   const [inputValue, setInputValue] = useState<string>('');
+  const searchText = useSelector((state: SearchText) => state.searchText.searchText);
 
   useEffect(() => {
-    setInputValue(localStorage.getItem('cripInput') || '');
-  }, []);
+    setInputValue(searchText || '');
+  }, [searchText]);
 
   SearchInput(inputValue);
 
