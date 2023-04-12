@@ -1,14 +1,18 @@
-import Products from '../../widgets/cards/cards';
-import Search from '../../widgets/search-input/search';
-import React, { useState } from 'react';
+import Cards from '../../widgets/cards/cards';
+import Search, { SearchText } from '../../widgets/search-input/search';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSearchValue } from '../../processes/store/searchTextSlice';
 
 const Main = () => {
-  const [query, setQuery] = useState(localStorage.getItem('cripInput') || '');
+  const searchText = useSelector((state: SearchText) => state.searchText.searchText) || 'random';
+  const dispatch = useDispatch();
+  const changeSearchText = (text: string) => dispatch(setSearchValue({ text }));
 
   return (
     <>
-      <Search setQuery={setQuery} />
-      <Products query={query} />
+      <Search setQuery={changeSearchText} />
+      <Cards query={searchText} />
     </>
   );
 };

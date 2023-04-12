@@ -35,3 +35,4 @@ const Search = ({ ...props }) => {
 };
 
 export default Search;
+export type { SearchText };

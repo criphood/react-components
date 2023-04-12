@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BodyScrollOptions, disableBodyScroll } from 'body-scroll-lock';
+import { useGetCardsQuery } from '../../processes/store/cardsApi';
 import getCards from './api/cards-api';
 import Preloader from '../loader/preloader';
 import Modal from '../modal/modal-window';
 import ICard from './types/types';
 
 const Cards = ({ ...props }) => {
-  const query = props.query || 'random';
-  const url = `https://api.unsplash.com/search/photos?orientation=landscape&per_page=100&query=${query}&client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY`;
-  const [cards, setCards] = useState<ICard[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data, isLoading } = useGetCardsQuery(props.query);
   const [isLoadingModal, setIsLoadingModal] = useState(false);
   const [modalActive, setModalActive] = useState(false);
   const [activeCard, setActiveCard] = useState<ICard | null>();
-
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      const response = await getCards(url);
-      setCards(response.results);
-    };
-
-    getData().then(() => setIsLoading(false));
-  }, [query, url]);
 
   const options: BodyScrollOptions = {
     reserveScrollBarGap: true,
@@ -34,12 +22,12 @@ const Cards = ({ ...props }) => {
     setActiveCard(response);
   };
 
-  return isLoading ? (
-    <Preloader />
-  ) : (
+  if (isLoading) return <Preloader />;
+
+  return (
     <>
       <div className="cards">
-        {cards.map(({ description, alt_description, urls, id }, i) => {
+        {data?.results.map(({ description, alt_description, urls, id }, i) => {
           return (
             <div
               role="card"
