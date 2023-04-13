@@ -16,7 +16,7 @@ describe('Navigation', () => {
     (useStateMock as jest.Mock).mockImplementation((init) => [init, setState]);
     render(
       <BrowserRouter>
-        <Svg setActive={setState} />
+        <Svg setModalActive={setState} />
       </BrowserRouter>
     );
     const name = screen.getByTestId('custom-element');

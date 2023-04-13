@@ -1,28 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BodyScrollOptions, disableBodyScroll } from 'body-scroll-lock';
 import { useGetCardsQuery } from '../../processes/store/cardsApi';
-import getCards from './api/cards-api';
 import Preloader from '../loader/preloader';
-import Modal from '../modal/modal-window';
-import ICard from './types/types';
+import { useDispatch } from 'react-redux';
+import { setCardIdValue } from '../../processes/store/cardIdSlice';
 
 const Cards = ({ ...props }) => {
-  const { data, isLoading } = useGetCardsQuery(props.query);
-  const [isLoadingModal, setIsLoadingModal] = useState(false);
-  const [modalActive, setModalActive] = useState(false);
-  const [activeCard, setActiveCard] = useState<ICard | null>();
+  const { data, isFetching } = useGetCardsQuery(props.query);
+  const dispatch = useDispatch();
+  const changeCardIdValue = (id: string) => dispatch(setCardIdValue({ id }));
 
   const options: BodyScrollOptions = {
     reserveScrollBarGap: true,
   };
 
-  const getDataForModal = async (id: string) => {
-    const url = `https://api.unsplash.com/photos/${id}?client_id=VIfvmKg5fbYxQ8GvhK9wG_2ZUjC7Z6jVs1FkHKdeupY`;
-    const response = await getCards(url);
-    setActiveCard(response);
-  };
-
-  if (isLoading) return <Preloader />;
+  if (isFetching) return <Preloader />;
 
   return (
     <>
@@ -35,9 +27,8 @@ const Cards = ({ ...props }) => {
               key={i}
               className="card"
               onClick={() => {
-                setModalActive(true);
-                setIsLoadingModal(true);
-                getDataForModal(id).then(() => setIsLoadingModal(false));
+                changeCardIdValue(id);
+                props.setModalActive(true);
                 disableBodyScroll(document.getElementsByTagName('body')[0], options);
               }}
             >
@@ -50,15 +41,6 @@ const Cards = ({ ...props }) => {
           );
         })}
       </div>
-      {activeCard && (
-        <Modal
-          active={modalActive}
-          setActive={setModalActive}
-          activeCard={activeCard}
-          setActiveCard={setActiveCard}
-        />
-      )}
-      {isLoadingModal && <Preloader />}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { enableBodyScroll } from 'body-scroll-lock';
 
-const Svg = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
+const Svg = ({ setModalActive }: { setModalActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <svg
       className="svg"
@@ -9,7 +9,7 @@ const Svg = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) =>
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
       onClick={() => {
-        setActive(false);
+        setModalActive(false);
         enableBodyScroll(document.getElementsByTagName('body')[0]);
       }}
     >

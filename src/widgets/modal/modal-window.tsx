@@ -1,39 +1,48 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { enableBodyScroll } from 'body-scroll-lock';
-import ICard from '../../widgets/cards/types/types';
 import './modal.scss';
 import Svg from './UI/svg';
+import Preloader from '../../widgets/loader/preloader';
+import { useGetCardModalQuery } from '../../processes/store/cardsApi';
+import { useSelector } from 'react-redux';
+
+interface CardId {
+  cardId: { cardId: string };
+}
 
 const Modal = ({
   active,
-  setActive,
-  activeCard,
-  setActiveCard,
+  setModalActive,
 }: {
   active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
-  activeCard: ICard;
-  setActiveCard: Dispatch<SetStateAction<ICard | null | undefined>>;
+  setModalActive: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const cardIdValue = useSelector((state: CardId) => state.cardId.cardId);
+
+  const { data, isFetching } = useGetCardModalQuery(cardIdValue);
+
+  if (isFetching) return <Preloader />;
+
   return (
     <div
       className={active ? 'modal active' : 'modal'}
       onClick={() => {
-        setActive(false);
+        setModalActive(false);
         enableBodyScroll(document.getElementsByTagName('body')[0]);
-        setActiveCard(null);
       }}
     >
-      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-        <Svg setActive={setActive} />
-        <div
-          className="modal__image"
-          style={{ backgroundImage: `url(${activeCard.urls.regular})` }}
-        ></div>
-        <p>Author: {activeCard.user.username}</p>
-        <p>Likes: {activeCard.likes}</p>
-        <p>Created at: {new Date(activeCard.created_at).toString().slice(0, -37)}</p>
-      </div>
+      {data && data.id && (
+        <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+          <Svg setModalActive={setModalActive} />
+          <div
+            className="modal__image"
+            style={{ backgroundImage: `url(${data.urls.regular})` }}
+          ></div>
+          <p>Author: {data.user.username}</p>
+          <p>Likes: {data.likes}</p>
+          <p>Created at: {new Date(data.created_at).toString().slice(0, -37)}</p>
+        </div>
+      )}
     </div>
   );
 };
