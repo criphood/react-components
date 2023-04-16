@@ -3,6 +3,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { store } from '../../processes/store/index';
+import { Provider } from 'react-redux';
 
 const products = new Response(
   JSON.stringify({
@@ -189,17 +191,25 @@ const products = new Response(
 
 describe('test render main page', () => {
   it('should be input on page', async () => {
-    render(<Main />);
+    render(
+      <Provider store={store}>
+        <Main />
+      </Provider>
+    );
     const search = screen.getByPlaceholderText('Search...');
     expect(search).toBeInTheDocument();
   });
 
-  it('should render first card', async () => {
+  it('should render first card', () => {
     const mockFetchPromise = Promise.resolve(products);
     jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
     act(async () => {
-      const { findByText } = render(<Main />);
+      const { findByText } = render(
+        <Provider store={store}>
+          <Main />
+        </Provider>
+      );
       const list = await waitFor(() => findByText(/colored/i));
       expect(list).toBeInTheDocument();
     });

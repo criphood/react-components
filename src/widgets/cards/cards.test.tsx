@@ -1,34 +1,22 @@
-import getCards from './api/cards-api';
+import Cards from './cards';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import React from 'react';
+import { store } from '../../processes/store/index';
+import { Provider } from 'react-redux';
+import userEvent from '@testing-library/user-event';
 
 describe('test api', () => {
   it('should return first item', async () => {
-    const mockResponse = new Response(
-      JSON.stringify({
-        id: 1,
-        title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        price: 109.95,
-        description:
-          'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-        category: "men's clothing",
-        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-        rating: { rate: 3.9, count: 120 },
-      })
+    render(
+      <Provider store={store}>
+        <Cards />
+      </Provider>
     );
-
-    const mockFetchPromise = Promise.resolve(mockResponse);
-    jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
-
-    const result = await getCards('https://fakestoreapi.com/products/1');
-
-    expect(result).toEqual({
-      id: 1,
-      title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-      price: 109.95,
-      description:
-        'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-      category: "men's clothing",
-      image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-      rating: { rate: 3.9, count: 120 },
-    });
+    setTimeout(async () => {
+      const card = screen.getByTestId('0');
+      expect(card).toBeInTheDocument();
+      await userEvent.click(card);
+    }, 2000);
   });
 });

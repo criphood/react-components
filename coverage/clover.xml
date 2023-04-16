@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681075767958" clover="3.2.0">
-  <project timestamp="1681075767958" name="All files">
-    <metrics statements="108" coveredstatements="75" conditionals="45" coveredconditionals="29" methods="41" coveredmethods="29" elements="194" coveredelements="133" complexity="0" loc="108" ncloc="108" packages="18" files="18" classes="18"/>
-    <package name="src">
-      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\index.tsx">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.app">
+<coverage generated="1681677215244" clover="3.2.0">
+  <project timestamp="1681677215244" name="All files">
+    <metrics statements="76" coveredstatements="51" conditionals="40" coveredconditionals="22" methods="30" coveredmethods="18" elements="146" coveredelements="91" complexity="0" loc="76" ncloc="76" packages="10" files="11" classes="11"/>
+    <package name="app">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\app\App.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -19,23 +10,23 @@
         <line num="6" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.pages.about-page">
+    <package name="entities.loader">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="about.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\pages\about-page\about.tsx">
+      <file name="preloader.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\entities\loader\preloader.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="16" type="stmt"/>
       </file>
     </package>
-    <package name="src.pages.error-page">
+    <package name="entities.user">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="error.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\pages\error-page\error.tsx">
+      <file name="user.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\entities\user\user.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.pages.forms-page">
+    <package name="pages.forms-page">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="forms.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\pages\forms-page\forms.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -43,179 +34,111 @@
         <line num="6" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.pages.main-page">
-      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+    <package name="pages.main-page">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
       <file name="main.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\pages\main-page\main.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
         <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="src.widgets.cards">
-      <metrics statements="25" coveredstatements="16" conditionals="10" coveredconditionals="6" methods="8" coveredmethods="3"/>
+    <package name="processes.store">
+      <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="index.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\processes\store\index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+      </file>
+      <file name="usersSlice.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\processes\store\usersSlice.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="widgets.all-users">
+      <metrics statements="6" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+      <file name="users.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\all-users\users.tsx">
+        <metrics statements="6" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="widgets.cards">
+      <metrics statements="11" coveredstatements="6" conditionals="4" coveredconditionals="1" methods="4" coveredmethods="1"/>
       <file name="cards.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\cards\cards.tsx">
-        <metrics statements="25" coveredstatements="16" conditionals="10" coveredconditionals="6" methods="8" coveredmethods="3"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="9" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
-        <line num="12" count="6" type="stmt"/>
-        <line num="13" count="6" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="27" count="6" type="stmt"/>
-        <line num="31" count="6" type="stmt"/>
+        <metrics statements="11" coveredstatements="6" conditionals="4" coveredconditionals="1" methods="4" coveredmethods="1"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="17" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="37" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.widgets.cards.api">
-      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="cards-api.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\cards\api\cards-api.tsx">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.cards.types">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="types.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\cards\types\types.tsx">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
-    </package>
-    <package name="src.widgets.form-component">
-      <metrics statements="30" coveredstatements="18" conditionals="25" coveredconditionals="17" methods="9" coveredmethods="6"/>
-      <file name="form.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\form-component\form.tsx">
-        <metrics statements="30" coveredstatements="18" conditionals="25" coveredconditionals="17" methods="9" coveredmethods="6"/>
-        <line num="15" count="4" type="stmt"/>
+    <package name="widgets.form">
+      <metrics statements="32" coveredstatements="19" conditionals="25" coveredconditionals="17" methods="10" coveredmethods="6"/>
+      <file name="form.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\form\form.tsx">
+        <metrics statements="32" coveredstatements="19" conditionals="25" coveredconditionals="17" methods="10" coveredmethods="6"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
         <line num="21" count="5" type="stmt"/>
         <line num="23" count="5" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="27" count="5" type="stmt"/>
-        <line num="28" count="5" type="stmt"/>
-        <line num="30" count="5" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="5" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="46" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="51" count="5" type="stmt"/>
-        <line num="61" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="107" count="2" type="cond" truecount="3" falsecount="0"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="45" count="5" type="stmt"/>
+        <line num="54" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="100" count="2" type="cond" truecount="3" falsecount="0"/>
+        <line num="107" count="1" type="stmt"/>
         <line num="114" count="1" type="stmt"/>
-        <line num="121" count="1" type="stmt"/>
-        <line num="141" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="142" count="0" type="stmt"/>
-        <line num="143" count="0" type="stmt"/>
-        <line num="144" count="0" type="stmt"/>
+        <line num="134" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.widgets.loader">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="preloader.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\loader\preloader.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.modal">
-      <metrics statements="6" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+    <package name="widgets.modal">
+      <metrics statements="8" coveredstatements="4" conditionals="7" coveredconditionals="1" methods="4" coveredmethods="2"/>
       <file name="modal-window.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\modal\modal-window.tsx">
-        <metrics statements="6" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.modal.UI">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="svg.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\modal\UI\svg.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.navigation">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="nav.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\navigation\nav.tsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.router">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="app-router.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\router\app-router.tsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.search-input">
-      <metrics statements="9" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="2"/>
-      <file name="search.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\search-input\search.tsx">
-        <metrics statements="9" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="2"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="21" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.search-input.utils">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="utils.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\search-input\utils\utils.tsx">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.widgets.user">
-      <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-      <file name="user-card.tsx" path="D:\web\Studying\RS School\RS SCHOOL (React course)\react-components\src\widgets\user\user-card.tsx">
-        <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="17" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="37" count="5" type="stmt"/>
+        <metrics statements="8" coveredstatements="4" conditionals="7" coveredconditionals="1" methods="4" coveredmethods="2"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="20" count="20" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="24" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
       </file>
     </package>
   </project>

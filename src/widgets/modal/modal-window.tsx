@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { enableBodyScroll } from 'body-scroll-lock';
 import './modal.scss';
 import Svg from './UI/svg';
-import Preloader from '../../widgets/loader/preloader';
+import Preloader from '../../entities/loader/preloader';
 import { useGetCardModalQuery } from '../../processes/store/cardsApi';
 import { useSelector } from 'react-redux';
 
@@ -26,6 +26,7 @@ const Modal = ({
   return (
     <div
       className={active ? 'modal active' : 'modal'}
+      data-testid="modal"
       onClick={() => {
         setModalActive(false);
         enableBodyScroll(document.getElementsByTagName('body')[0]);

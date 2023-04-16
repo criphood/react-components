@@ -4,13 +4,17 @@ import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Form from './form';
+import { Provider } from 'react-redux';
+import { store } from 'processes/store/index';
 
 describe('Form', () => {
   it('form', async () => {
     render(
-      <BrowserRouter>
-        <Form />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Form />
+        </BrowserRouter>
+      </Provider>
     );
 
     const name = screen.getByLabelText(/Name:/i) as HTMLInputElement;
@@ -50,7 +54,7 @@ describe('Form', () => {
         aria-hidden="true"
         data-testid="city"
         className="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-        value=""
+        defaultValue=""
       />
     );
 

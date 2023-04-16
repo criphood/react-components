@@ -1,7 +1,7 @@
 import React from 'react';
 import { BodyScrollOptions, disableBodyScroll } from 'body-scroll-lock';
 import { useGetCardsQuery } from '../../processes/store/cardsApi';
-import Preloader from '../loader/preloader';
+import Preloader from '../../entities/loader/preloader';
 import { useDispatch } from 'react-redux';
 import { setCardIdValue } from '../../processes/store/cardIdSlice';
 
