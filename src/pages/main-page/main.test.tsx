@@ -200,18 +200,15 @@ describe('test render main page', () => {
     expect(search).toBeInTheDocument();
   });
 
-  it('should render first card', () => {
+  it('should render first card', async () => {
     const mockFetchPromise = Promise.resolve(products);
     jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-    act(async () => {
-      const { findByText } = render(
-        <Provider store={store}>
-          <Main />
-        </Provider>
-      );
-      const list = await waitFor(() => findByText(/colored/i));
-      expect(list).toBeInTheDocument();
-    });
+    render(
+      <Provider store={store}>
+        <Main />
+      </Provider>
+    );
+    await waitFor(() => expect(screen.getByTestId('0')).toBeInTheDocument());
   });
 });
