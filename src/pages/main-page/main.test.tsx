@@ -2,7 +2,6 @@ import Main from './main';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { store } from '../../processes/store/index';
 import { Provider } from 'react-redux';
 

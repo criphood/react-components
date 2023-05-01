@@ -84,7 +84,9 @@ const Form = () => {
         }}
       >
         <MenuItem selected value={''}></MenuItem>
-        <MenuItem value={'Moscow'}>Moscow</MenuItem>
+        <MenuItem value={'Moscow'} data-testid="Moscow">
+          Moscow
+        </MenuItem>
         <MenuItem value={'Kazan'}>Kazan</MenuItem>
         <MenuItem value={'Saint-Petersburg'}>Saint-Petersburg</MenuItem>
         <MenuItem value={'Minsk'}>Minsk</MenuItem>

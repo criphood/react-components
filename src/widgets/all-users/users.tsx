@@ -7,7 +7,7 @@ const Users = () => {
   const users = useSelector((state: IUsers) => state.users.users);
   if (users.length > 0) {
     return (
-      <div className="users__wrapper">
+      <div className="users__wrapper" data-testid="users">
         {users.map(({ username, birthday, city, gender, src }, i) => {
           return (
             <User

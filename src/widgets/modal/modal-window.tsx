@@ -33,7 +33,11 @@ const Modal = ({
       }}
     >
       {data && data.id && (
-        <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="modal__content"
+          data-testid="modal__content"
+          onClick={(e) => e.stopPropagation()}
+        >
           <Svg setModalActive={setModalActive} />
           <div
             className="modal__image"

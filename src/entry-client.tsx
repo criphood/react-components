@@ -19,3 +19,5 @@ function entryClient(store: Store) {
 }
 
 entryClient(store);
+
+export default entryClient;

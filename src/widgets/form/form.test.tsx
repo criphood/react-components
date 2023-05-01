@@ -37,6 +37,9 @@ describe('Form', () => {
     expect(female).toBeInTheDocument();
     expect(female.checked).toBe(true);
 
+    const inputFile = document.getElementById('avatar');
+    expect(inputFile).toBeInTheDocument();
+
     const consent = screen.getByTestId(/consent/i) as HTMLInputElement;
     await userEvent.click(consent);
     expect(consent).toBeInTheDocument();
@@ -45,7 +48,6 @@ describe('Form', () => {
     const submit = screen.getByText(/Submit/i);
     expect(submit).toBeInTheDocument();
     await userEvent.click(submit);
-    // expect(alertMock).toHaveBeenCalled();
   });
   it('select', () => {
     render(
