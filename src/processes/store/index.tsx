@@ -1,18 +1,24 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { PreloadedState, configureStore, combineReducers } from '@reduxjs/toolkit';
 import searchTextSlice from './searchTextSlice';
 import cardIdSlice from './cardIdSlice';
 import usersSlice from './usersSlice';
 import { cardsApi } from './cardsApi';
 
+type InitialState = PreloadedState<ReturnType<typeof rootReducer>>;
+
+const rootReducer = combineReducers({
+  searchText: searchTextSlice,
+  cardId: cardIdSlice,
+  users: usersSlice,
+  [cardsApi.reducerPath]: cardsApi.reducer,
+});
+
+const preloadedState: InitialState = {};
+
 export const store = configureStore({
-  reducer: {
-    searchText: searchTextSlice,
-    cardId: cardIdSlice,
-    users: usersSlice,
-    [cardsApi.reducerPath]: cardsApi.reducer,
-  },
+  reducer: rootReducer,
+  preloadedState,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(cardsApi.middleware),
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof rootReducer>;

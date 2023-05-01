@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/widgets/all-users/users.tsx</title>
+    <title>Code coverage report for src/widgets/search-input/search.test.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/widgets/all-users</a> users.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/widgets/search-input</a> search.test.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.42% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/7</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,19 +92,7 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,40 +107,49 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { IUsers } from '../form/form';
-import User from '../../entities/user/user';
-import { useSelector } from 'react-redux';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import React, { useState as useStateMock } from 'react';
+import { store } from '../../processes/store/index';
+import { Provider } from 'react-redux';
+import userEvent from '@testing-library/user-event';
+import Search from './search';
 &nbsp;
-const Users = () =&gt; {
-  const users = useSelector((state: IUsers) =&gt; state.users.users);
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (users.length &gt; 0) {
-<span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;div className="users__wrapper" data-testid="users"&gt;
-        {users.map(<span class="fstat-no" title="function not covered" >({</span> username, birthday, city, gender, src }, i) =&gt; {
-<span class="cstat-no" title="statement not covered" >          return (</span>
-            &lt;User
-              birthday={birthday}
-              username={username}
-              city={city}
-              gender={gender}
-              src={src}
-              key={i}
-              consent={''}
-            /&gt;
-          );
-        })}
-      &lt;/div&gt;
+jest.mock('react', () =&gt; ({
+  ...jest.requireActual('react'),
+  useState: jest.fn(),
+}));
+&nbsp;
+describe('test search component', () =&gt; {
+  const setState = jest.fn();
+&nbsp;
+  it('should change input value', async () =&gt; {
+    (useStateMock as jest.Mock).mockImplementation(() =&gt; ['', setState]);
+&nbsp;
+    render(
+      &lt;Provider store={store}&gt;
+        &lt;Search setQuery={setState} /&gt;
+      &lt;/Provider&gt;
     );
-  }
-  return &lt;div&gt;&lt;/div&gt;;
-};
-&nbsp;
-export default Users;
+    const search = screen.getByPlaceholderText('Search...');
+    await userEvent.type(search, 'car{enter}');
+    expect(search).toBeInTheDocument();
+  });
+});
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -160,7 +157,7 @@ export default Users;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-01T21:54:22.809Z
+                at 2023-05-01T21:53:59.122Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
